@@ -35,11 +35,11 @@ async def ytdl(_, message):
     try:
         # Todo add webp image support in thumbnail by default not supported by pyrogram
         # https://www.youtube.com/watch?v=lTTajzrSkCw
-        await message.reply_photo(thumbnail_url, caption=title, reply_markup=buttons)
+        await message.reply_text(yt_reply, caption=title, reply_markup=buttons)
         await sentm.delete()
     except Exception as e:
         try:
-            thumbnail_url = "https://telegra.ph/file/9a84002bbf1611b843fa6.jpg"
+            yt_reply = ""
             await message.reply_photo(thumbnail_url, caption=title, reply_markup=buttons)
         except Exception as e:
             await sentm.edit(
